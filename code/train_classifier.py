@@ -41,9 +41,11 @@ print(f"Ditemukan {num_classes} kelas: {class_names}")
 # --- 2. Augmentasi Data ---
 # Membuat lapisan augmentasi untuk meningkatkan variasi data latih
 data_augmentation = tf.keras.Sequential([
-    tf.keras.layers.RandomFlip("horizontal_and_vertical"),
-    tf.keras.layers.RandomRotation(0.2),
-    tf.keras.layers.RandomZoom(0.2),
+    tf.keras.layers.RandomFlip("horizontal"),
+    tf.keras.layers.RandomRotation(0.1), # Sedikit rotasi untuk variasi
+    tf.keras.layers.RandomZoom(0.1),
+    tf.keras.layers.RandomContrast(0.1), # Sedikit variasi kontras
+    tf.keras.layers.RandomBrightness(0.1), # Sedikit variasi kecerahan
 ])
 
 # Terapkan augmentasi hanya pada dataset pelatihan
