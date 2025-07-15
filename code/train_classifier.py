@@ -78,8 +78,8 @@ outputs = tf.keras.layers.Dense(num_classes, activation='softmax')(x)
 
 model = tf.keras.Model(inputs, outputs)
 
-# --- 4. Kompilasi dan Pelatihan Model ---
-print("Memulai kompilasi dan pelatihan model...")
+# --- 4. Kompilasi dan Pelatihan Fase 1 (Transfer Learning) ---
+print("Memulai kompilasi dan pelatihan awal (hanya lapisan atas)...")
 
 model.compile(
     optimizer=tf.keras.optimizers.Adam(),
@@ -87,17 +87,55 @@ model.compile(
     metrics=['accuracy']
 )
 
+print("Ringkasan model untuk pelatihan awal:")
 model.summary()
 
+initial_epochs = 10
 history = model.fit(
     train_ds,
     validation_data=val_ds,
-    epochs=epochs
+    epochs=initial_epochs
 )
 
-print("\nPelatihan selesai.")
+# --- 5. Kompilasi dan Pelatihan Fase 2 (Fine-Tuning) ---
+print("\nMemulai fase fine-tuning (penyetelan halus)...")
 
-# --- 5. Konversi ke TensorFlow Lite dan Kuantisasi ---
+# Cairkan sebagian lapisan dari model dasar
+base_model.trainable = True
+
+# Tentukan berapa banyak lapisan yang akan dibekukan dari awal
+# Kita akan melatih ulang lapisan-lapisan terakhir saja (sekitar 35% dari total).
+fine_tune_at = 100 
+
+# Bekukan semua lapisan sebelum `fine_tune_at`
+for layer in base_model.layers[:fine_tune_at]:
+    layer.trainable = False
+
+# Kompilasi ulang model dengan laju pembelajaran (learning rate) yang sangat rendah
+model.compile(
+    loss=tf.keras.losses.SparseCategoricalCrossentropy(),
+    optimizer=tf.keras.optimizers.Adam(learning_rate=1e-5),
+    metrics=['accuracy']
+)
+
+print("Ringkasan model setelah persiapan fine-tuning:")
+model.summary()
+
+# Lanjutkan pelatihan untuk fine-tuning
+fine_tune_epochs = 10
+total_epochs = initial_epochs + fine_tune_epochs
+
+history_fine = model.fit(
+    train_ds,
+    epochs=total_epochs,
+    initial_epoch=history.epoch[-1],
+    validation_data=val_ds
+)
+
+print("\nPelatihan fine-tuning selesai.")
+
+
+# --- 6. Konversi ke TensorFlow Lite dan Kuantisasi ---
 print(f"\nMengekspor model ke format TFLite di direktori: {export_dir}")
 
 # Buat direktori jika belum ada
@@ -118,7 +156,7 @@ tflite_model_path = os.path.join(export_dir, 'model.tflite')
 with open(tflite_model_path, 'wb') as f:
     f.write(tflite_quant_model)
 
-# --- 6. Simpan Label ---
+# --- 7. Simpan Label ---
 labels_path = os.path.join(export_dir, 'labels.txt')
 with open(labels_path, 'w') as f:
     f.write('\n'.join(class_names))
