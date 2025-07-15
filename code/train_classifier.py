@@ -3,7 +3,7 @@ import numpy as np
 import os
 
 # --- Konfigurasi ---
-dataset_path = 'E:/BACKUP DRIVE D/Kerjaan/AI Engineering/akseoro/data/aksarajawa-hanacaraka'
+dataset_path = 'E:/BACKUP DRIVE D/Kerjaan/AI Engineering/akseoro/data/aksarajawa-hanacaraka_augmented'
 img_height = 224
 img_width = 224
 batch_size = 32

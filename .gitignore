@@ -86,3 +86,15 @@ target/
 
 # Mypy cache
 .mypy_cache/
+
+# Data and Models
+data/aksarajawa-hanacaraka_augmented/
+data/aksarajawa-hanacaraka/
+exported_model/
+models/*.h5
+models/*.keras
+reports/figures/
+
+# Archive files
+*.zip
+*.tar.gz
