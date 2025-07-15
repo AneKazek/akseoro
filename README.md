@@ -1,4 +1,4 @@
-# Aksara Jawa Classifier
+# Akseoro : Aksara Jawir Classifier
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue?style=for-the-badge&logo=python&logoColor=white)
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange?style=for-the-badge&logo=tensorflow&logoColor=white)
