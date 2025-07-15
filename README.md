@@ -4,6 +4,7 @@
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange?style=for-the-badge&logo=tensorflow&logoColor=white)
 ![TensorFlow Lite](https://img.shields.io/badge/TensorFlow%20Lite-0.0.0-yellow?style=for-the-badge&logo=tensorflow&logoColor=white)
 ![Pillow](https://img.shields.io/badge/Pillow-9.x-green?style=for-the-badge&logo=python&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-1.x-blueviolet?style=for-the-badge&logo=numpy&logoColor=white)
 
 ## Project Description
 
