@@ -14,6 +14,16 @@ This project aims to develop a Javanese script classification system using machi
 -   **Exportable Models**: Trained models can be exported for inference on various devices.
 -   **Image Validation**: Tools for validating image datasets.
 
+## Technologies Used
+
+This project leverages the following key technologies:
+
+*   **Python**: The primary programming language for all scripts.
+*   **TensorFlow** (with `tf.keras`): The main framework for building, training, and evaluating deep learning models.
+*   **PIL (Pillow)**: A Python Imaging Library fork used for image data augmentation (rotation, zoom, brightness, contrast, shifting) in the `augment_dataset.py` script.
+*   **NumPy**: The fundamental library for numerical computing, especially for manipulating image data as arrays.
+*   **TensorFlow Lite**: Used to convert trained models into a lightweight format (`.tflite`) for inference on resource-constrained devices.
+
 ## Installation
 
 To run this project locally, follow these steps:
