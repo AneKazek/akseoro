@@ -3,29 +3,29 @@
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue?style=for-the-badge&logo=python&logoColor=white)
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange?style=for-the-badge&logo=tensorflow&logoColor=white)
 
-## Deskripsi Proyek
+## Project Description
 
-Proyek ini bertujuan untuk mengembangkan sistem klasifikasi aksara Jawa menggunakan teknik pembelajaran mesin. Sistem ini dirancang untuk mengidentifikasi dan mengklasifikasikan berbagai karakter aksara Jawa dari gambar, yang dapat digunakan untuk digitalisasi naskah kuno atau aplikasi pendidikan.
+This project aims to develop a Javanese script classification system using machine learning techniques. The system is designed to identify and classify various Javanese script characters from images, which can be used for digitizing ancient manuscripts or educational applications.
 
-## Fitur
+## Features
 
-- **Klasifikasi Aksara Jawa**: Mengidentifikasi karakter aksara Jawa dengan akurasi tinggi.
-- **Augmentasi Data**: Meningkatkan ukuran dataset untuk melatih model yang lebih robust.
-- **Model yang Dapat Diekspor**: Model yang terlatih dapat diekspor untuk inferensi pada perangkat yang berbeda.
-- **Validasi Gambar**: Alat untuk memvalidasi dataset gambar.
+-   **Javanese Script Classification**: Accurately identifies Javanese script characters.
+-   **Data Augmentation**: Increases dataset size to train more robust models.
+-   **Exportable Models**: Trained models can be exported for inference on various devices.
+-   **Image Validation**: Tools for validating image datasets.
 
-## Instalasi
+## Installation
 
-Untuk menjalankan proyek ini secara lokal, ikuti langkah-langkah berikut:
+To run this project locally, follow these steps:
 
-1.  **Kloning repositori:**
+1.  **Clone the repository:**
 
     ```bash
     git clone https://github.com/your-username/aksara-jawa-classifier.git
     cd aksara-jawa-classifier
     ```
 
-2.  **Buat dan aktifkan virtual environment (opsional, tapi direkomendasikan):**
+2.  **Create and activate a virtual environment (optional, but recommended):**
 
     ```bash
     python -m venv venv
@@ -35,17 +35,17 @@ Untuk menjalankan proyek ini secara lokal, ikuti langkah-langkah berikut:
     source venv/bin/activate
     ```
 
-3.  **Instal dependensi:**
+3.  **Install dependencies:**
 
     ```bash
     pip install -r requirements.txt
     ```
 
-## Penggunaan
+## Usage
 
-### 1. Menyiapkan Dataset
+### 1. Prepare Dataset
 
-Pastikan Anda memiliki dataset aksara Jawa yang terorganisir. Struktur direktori yang diharapkan adalah:
+Ensure you have an organized Javanese script dataset. The expected directory structure is:
 
 ```
 data/
@@ -57,43 +57,43 @@ data/
     └── ...
 ```
 
-### 2. Augmentasi Data (Opsional)
+### 2. Data Augmentation (Optional)
 
-Untuk memperbanyak dataset dan meningkatkan performa model:
+To expand the dataset and improve model performance:
 
 ```bash
 python code/augment_dataset.py
 ```
 
-Hasil augmentasi akan disimpan di `data/aksarajawa-hanacaraka_augmented/`.
+Augmented data will be saved in `data/aksarajawa-hanacaraka_augmented/`.
 
-### 3. Melatih Model Klasifikasi
+### 3. Train Classification Model
 
-Untuk melatih model baru:
+To train a new model:
 
 ```bash
 python code/train_classifier.py
 ```
 
-Model yang terlatih akan disimpan di direktori `exported_model/`.
+The trained model will be saved in the `exported_model/` directory.
 
-### 4. Melakukan Prediksi
+### 4. Make Predictions
 
-Untuk melakukan prediksi pada gambar baru:
+To make predictions on new images:
 
 ```bash
 python code/predict.py --image_path "path/to/your/image.png"
 ```
 
-### 5. Memvalidasi Gambar
+### 5. Validate Images
 
-Untuk memvalidasi gambar dalam dataset:
+To validate images in the dataset:
 
 ```bash
 python code/validate_images.py
 ```
 
-## Struktur Proyek
+## Project Structure
 
 ```
 .gitignore
@@ -106,15 +106,15 @@ code/
 ├── train_classifier.py
 └── validate_images.py
 data/
-├── aksarajawa-hanacaraka/          # Dataset asli
-└── aksarajawa-hanacaraka_augmented/  # Dataset yang diaugmentasi
+├── aksarajawa-hanacaraka/          # Original dataset
+└── aksarajawa-hanacaraka_augmented/  # Augmented dataset
 exported_model/
 ├── labels.txt
 ├── model.tflite
-└── saved_model/                    # Model TensorFlow yang diekspor
-models/                             # Direktori untuk model yang disimpan selama pelatihan
+└── saved_model/                    # Exported TensorFlow model
+models/                             # Directory for models saved during training
 reports/
-└── figures/                        # Direktori untuk laporan dan gambar
+└── figures/                        # Directory for reports and figures
 src/
 ├── data/
 │   └── make_dataset.py
@@ -127,21 +127,21 @@ src/
     └── visualize.py
 ```
 
-## Kontribusi
+## Contributing
 
-Kontribusi sangat dihargai! Jika Anda ingin berkontribusi, silakan ikuti langkah-langkah berikut:
+Contributions are highly appreciated! If you'd like to contribute, please follow these steps:
 
-1.  Fork repositori ini.
-2.  Buat branch baru (`git checkout -b feature/nama-fitur-baru`).
-3.  Lakukan perubahan Anda.
-4.  Commit perubahan Anda (`git commit -m 'Tambahkan fitur baru'`).
-5.  Push ke branch Anda (`git push origin feature/nama-fitur-baru`).
-6.  Buka Pull Request.
+1.  Fork this repository.
+2.  Create a new branch (`git checkout -b feature/new-feature-name`).
+3.  Make your changes.
+4.  Commit your changes (`git commit -m 'Add new feature'`).
+5.  Push to your branch (`git push origin feature/new-feature-name`).
+6.  Open a Pull Request.
 
-## Lisensi
+## License
 
-Proyek ini dilisensikan di bawah [LICENCE.txt](LICENCE.txt).
+This project is licensed under the [LICENCE.txt](LICENCE.txt).
 
-## Kontak
+## Contact
 
-Jika Anda memiliki pertanyaan atau saran, jangan ragu untuk menghubungi saya.
+If you have any questions or suggestions, feel free to contact me.
